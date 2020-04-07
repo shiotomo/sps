@@ -1,0 +1,1 @@
+from .speedtest_repository import SpeedtestRepository

@@ -1,0 +1,1 @@
+from .speedtest_config import JAPAN_SERVER_LIST

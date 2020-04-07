@@ -1,6 +1,6 @@
 from service import SpeedtestService
 
-class Sps:
+class SpsCmd:
     @staticmethod
     def main():
         speedtestService = SpeedtestService('cmd')
@@ -11,4 +11,4 @@ class Sps:
             print(vars(speedtest))
 
 if __name__ == "__main__":
-    Sps.main()
+    SpsCmd.main()

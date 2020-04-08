@@ -1,5 +1,8 @@
+import json
+from datetime import date, datetime
 from sqlalchemy import Column, Integer, String, Boolean, Float, Date, DateTime, ForeignKey
 from sqlalchemy.ext.declarative import declarative_base
+
 from .setting import Base
 from .setting import ENGINE
 
@@ -34,5 +37,53 @@ class Speedtest(Base):
     client_loggedin = Column('client_loggedin', String)
     client_country = Column('client_country', String)
     mode = Column('mode', String)
+
+    # speedtestモデルを辞書型に変換する
+    def to_dict(self):
+        speedtest_dict = {
+            'id': self.id,
+            'download': self.download,
+            'upload': self.upload,
+            'ping': self.ping,
+            'server_url': self.server_url,
+            'server_lat': self.server_lat,
+            'server_lon': self.server_lon,
+            'server_name': self.server_name,
+            'server_country': self.server_country,
+            'server_cc': self.server_cc,
+            'server_sponsor': self.server_sponsor,
+            'server_id': self.server_id,
+            'server_host': self.server_host,
+            'server_d': self.server_d,
+            'server_latency': self.server_latency,
+            'timestamp': self.timestamp,
+            'bytes_sent': self.bytes_sent,
+            'bytes_received': self.bytes_received,
+            'share': self.share,
+            'client_ip': self.client_ip,
+            'client_lat': self.client_lat,
+            'client_lon': self.client_lon,
+            'client_isp': self.client_isp,
+            'client_isprating': self.client_isprating,
+            'client_rating': self.client_rating,
+            'client_ispdlavg': self.client_ispdlavg,
+            'client_loggedin': self.client_loggedin,
+            'client_country': self.client_country,
+            'mode': self.mode
+        }
+        return speedtest_dict
+    
+    def to_json(self):
+        speedtest_dict = self.to_dict()
+        return json.dumps(speedtest_dict, default=self.json_serial)
+
+    # date, datetimeの変換関数
+    def json_serial(self, obj):
+        # 日付型の場合には、文字列に変換します
+        if isinstance(obj, (datetime, date)):
+            return obj.isoformat()
+        # 上記以外はサポート対象外.
+        raise TypeError ("Type %s not serializable" % type(obj))
+
 
 Base.metadata.create_all(bind=ENGINE)

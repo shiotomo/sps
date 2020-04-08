@@ -6,9 +6,15 @@ DATABASE = 'sqlite:///./sps.db'
 
 ENGINE = create_engine(
     DATABASE,
-    encoding = 'utf-8',
-    echo=True
+    encoding = 'utf-8'
 )
+
+# 操作ログ出力用
+# ENGINE = create_engine(
+#     DATABASE,
+#     encoding = 'utf-8',
+#     echo=True
+# )
 
 DBSession = scoped_session(sessionmaker(
     autocommit=False,

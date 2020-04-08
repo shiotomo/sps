@@ -52,4 +52,4 @@ class SpeedtestRepository:
         )
         self.session.add(speedtest)
         self.session.commit()
-        return record
+        return speedtest

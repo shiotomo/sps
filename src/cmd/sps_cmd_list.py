@@ -18,6 +18,5 @@ class SpsCmdList():
         print(result)
 
     def get_result(self):
-        speedtests = self.speedtest_service.get_speedtest_all()
-        for speedtest in speedtests:
-            print(speedtest.to_json())
+        speedtest_list = self.speedtest_service.get_speedtest_all()
+        print(speedtest_list)

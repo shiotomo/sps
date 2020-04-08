@@ -1,0 +1,1 @@
+from .v1.speedtest_controller import sps_router

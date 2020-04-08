@@ -12,12 +12,17 @@ class SpeedtestService:
 
     def get_speedtest_all(self):
         speedtests = self.speedtest_repository.select_all()
-        return speedtests
+        speedtest_list = []
+        for speedtest in speedtests:
+            speedtest_list.append(speedtest.to_dict())
+        return speedtest_list
 
     # speedtestを実行し、結果をDBに格納する
     def record_speedtest_result(self):
+        print("run speedtest!!")
         speedtest_result = self.run_speedtest()
         speedtest = self.speedtest_repository.insert(speedtest_result)
+        print(speedtest.to_dict())
         return speedtest
 
     # speedtestを実行した結果を取得する

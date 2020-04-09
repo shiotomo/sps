@@ -30,6 +30,7 @@ class SpeedtestService:
     def record_speedtest_all_server(self):
         result_list = []
         for server in JAPAN_SERVER_LIST:
+            print("start: " + server['id'])
             speedtest_result = self.run_speedtest(server)
             speedtest = self.speedtest_repository.insert(speedtest_result)
             print(speedtest.to_dict())

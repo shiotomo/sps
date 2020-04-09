@@ -6,13 +6,13 @@ JAPAN_SERVER_LIST = [
         'host': 'sp1.atcc-gns.net:8080',
         'id': '6087'
     },
-    {
-        'country': 'JAPAN',
-        'city': 'Maibara',
-        'provider': 'gatolabo',
-        'host': 'gato.mydns.jp:8080',
-        'id': '6368'
-    },
+    # {
+    #     'country': 'JAPAN',
+    #     'city': 'Maibara',
+    #     'provider': 'gatolabo',
+    #     'host': 'gato.mydns.jp:8080',
+    #     'id': '6368'
+    # },
     {
         'country': 'JAPAN',
         'city': 'Misawa',
@@ -62,13 +62,13 @@ JAPAN_SERVER_LIST = [
         'host': 'speed.open.ad.jp:8080',
         'id': '15047'
     },
-    {
-        'country': 'JAPAN',
-        'city': 'Tokyo',
-        'provider': 'GIAM PING VIETPN.COM',
-        'host': 'jp.sp.vietpn.com:8080',
-        'id': '18516'
-    },
+    # {
+    #     'country': 'JAPAN',
+    #     'city': 'Tokyo',
+    #     'provider': 'GIAM PING VIETPN.COM',
+    #     'host': 'jp.sp.vietpn.com:8080',
+    #     'id': '18516'
+    # },
     {
         'country': 'JAPAN',
         'city': 'Hitoyoshi',
@@ -76,13 +76,13 @@ JAPAN_SERVER_LIST = [
         'host': 'speed.extride.net:8080',
         'id': '18709'
     },
-    {
-        'country': 'JAPAN',
-        'city': 'Tokyo',
-        'provider': 'GLBB Japan',
-        'host': 'speedtest-xg-tokyo.glbb.ne.jp:8080',
-        'id': '20976'
-    },
+    # {
+    #     'country': 'JAPAN',
+    #     'city': 'Tokyo',
+    #     'provider': 'GLBB Japan',
+    #     'host': 'speedtest-xg-tokyo.glbb.ne.jp:8080',
+    #     'id': '20976'
+    # },
     {
         'country': 'JAPAN',
         'city': 'Naha',
@@ -104,13 +104,13 @@ JAPAN_SERVER_LIST = [
         'host': 'ookla.mbspeed.net:8080',
         'id': '24333'
     },
-    {
-        'country': 'JAPAN',
-        'city': 'Yamato',
-        'provider': 'ymsr.cloud',
-        'host': 'ymt.ymsr.cloud:8080',
-        'id': '24537'
-    },
+    # {
+    #     'country': 'JAPAN',
+    #     'city': 'Yamato',
+    #     'provider': 'ymsr.cloud',
+    #     'host': 'ymt.ymsr.cloud:8080',
+    #     'id': '24537'
+    # },
     {
         'country': 'JAPAN',
         'city': 'Kyoto',
@@ -125,13 +125,13 @@ JAPAN_SERVER_LIST = [
         'host': 'lg-tok.fdcservers.net:8080',
         'id': '28910'
     },
-    {
-        'country': 'JAPAN',
-        'city': 'Tokyo',
-        'provider': 'Ixnium Technologies',
-        'host': 'nrt.ixnium.com:8080',
-        'id': '30128'
-    },
+    # {
+    #     'country': 'JAPAN',
+    #     'city': 'Tokyo',
+    #     'provider': 'Ixnium Technologies',
+    #     'host': 'nrt.ixnium.com:8080',
+    #     'id': '30128'
+    # },
     {
         'country': 'JAPAN',
         'city': 'Naha City',

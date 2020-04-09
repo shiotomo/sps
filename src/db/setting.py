@@ -2,7 +2,9 @@ from sqlalchemy import *
 from sqlalchemy.orm import *
 from sqlalchemy.ext.declarative import declarative_base
 
-DATABASE = 'sqlite:///./sps.db'
+from config import DATABASE_URL
+
+DATABASE = DATABASE_URL
 
 ENGINE = create_engine(
     DATABASE,

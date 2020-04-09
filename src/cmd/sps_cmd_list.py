@@ -1,4 +1,7 @@
+import json
+
 from service import SpeedtestService
+from config import JAPAN_SERVER_LIST
 
 class SpsCmdList():
     def __init__(self, cmd):
@@ -10,6 +13,8 @@ class SpsCmdList():
             self.run_speed_test()
         elif self.cmd == 'result':
             self.get_result()
+        elif self.cmd == 'all':
+            self.run_speed_test_all_server()
         else:
             print(self.cmd)
 
@@ -20,3 +25,11 @@ class SpsCmdList():
     def get_result(self):
         speedtest_list = self.speedtest_service.get_speedtest_all()
         print(speedtest_list)
+
+    def run_speed_test_all_server(self):
+        for server in JAPAN_SERVER_LIST:
+            try:
+                result = self.speedtest_service.run_speedtest(server)
+                print('ok: ' + str(server))
+            except json.decoder.JSONDecodeError:
+                print('error: ' + str(server['id']))

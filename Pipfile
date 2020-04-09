@@ -22,6 +22,7 @@ python_version = "3.7"
 [scripts]
 speedtest = "python3 src/sps_cmd.py speedtest"
 result = "python3 src/sps_cmd.py result"
+all = "python3 src/sps_cmd.py all"
 api = "python3 src/sps_api.py"
 batch = "python3 src/sps_schedule.py"
 service = "honcho start"

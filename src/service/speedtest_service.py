@@ -20,15 +20,25 @@ class SpeedtestService:
     # speedtestを実行し、結果をDBに格納する
     def record_speedtest_result(self):
         print("run speedtest!!")
-        speedtest_result = self.run_speedtest()
+        server = self.get_random_speedtest_server()
+        speedtest_result = self.run_speedtest(server)
         speedtest = self.speedtest_repository.insert(speedtest_result)
         print(speedtest.to_dict())
         return speedtest
 
+    # 全てのserverでspeedtestを実行し、結果をDBに格納する
+    def record_speedtest_all_server(self):
+        result_list = []
+        for server in JAPAN_SERVER_LIST:
+            speedtest_result = self.run_speedtest(server)
+            speedtest = self.speedtest_repository.insert(speedtest_result)
+            print(speedtest.to_dict())
+            result_list.append(speedtest.to_dict())
+        return result_list
+
     # speedtestを実行した結果を取得する
-    def run_speedtest(self):
-        japan_server = self.get_random_speedtest_server()
-        process = subprocess.run(['speedtest', '--server', japan_server['id'], '--json'], capture_output=True)
+    def run_speedtest(self, server):
+        process = subprocess.run(['speedtest', '--server', server['id'], '--json'], capture_output=True)
         return json.loads(process.stdout)
 
     # JAPAN_SERVER_LISTからランダムに1つサーバを取得する

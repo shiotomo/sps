@@ -1,1 +1,2 @@
-from .v1.speedtest_controller import sps_router
+from .v1.speedtest_controller import speedtest_router
+from .v1.speedtest_batch_controller import speedtest_batch_router

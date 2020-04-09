@@ -11,11 +11,21 @@ class SpeedtestRepository:
         speedtests = self.session.query(Speedtest).all()
         return speedtests
 
-    def select_batch_all(self):
-        pass
+    def select_where_server_id(self, server_id):
+        speedtests = self.session.query(Speedtest).filter(Speedtest.server_id == server_id).all()
+        return speedtests
 
-    def select_cmd_all(self):
-        pass
+    def select_where_mode(self, mode):
+        speedtests = self.session.query(Speedtest).filter(Speedtest.mode == mode).all()
+        return speedtests
+
+    def select_where_server_id_and_batch(self, server_id):
+        speedtests = self.session.query(Speedtest).filter(Speedtest.server_id == server_id).filter(Speedtest.mode == 'batch').all()
+        return speedtests
+
+    def select_where_server_id_and_batch(self, server_id):
+        speedtests = self.session.query(Speedtest).filter(Speedtest.server_id == server_id).filter(Speedtest.mode == 'batch').all()
+        return speedtests
 
     def insert(self, record):
         # timestamp = dt.strptime(record['timestamp'], '%Y-%m-%dT%H:%M:%S')

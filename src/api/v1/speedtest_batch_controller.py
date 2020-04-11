@@ -1,8 +1,10 @@
 from flask import Blueprint, jsonify
+from flask_cors import CORS
 
 from service import SpeedtestService
 
 speedtest_batch_router = Blueprint('speedtest_batch_router', __name__, url_prefix='/api/v1/speedtests/batch')
+CORS(speedtest_batch_router)
 
 speedtest_service = SpeedtestService('api')
 

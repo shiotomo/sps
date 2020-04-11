@@ -1,26 +1,43 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+import Router from './Router.js';
+import MenuBar from './component/MenuBar/MenuBar.js'
+
+class App extends Component {
+  header() {
+    return (
+      <header>
+        <MenuBar />
       </header>
-    </div>
-  );
+    );
+  }
+
+  fotter() {
+    return (
+      <div className="fotter">
+        &copy; sps-monitor shiotomo 2020
+      </div>
+    );
+  }
+
+  content() {
+    return (
+      <div>
+        <Router />
+      </div>
+    );
+  }
+
+  render() {
+    return (
+      <div className="App">
+        {this.header()}
+        {this.content()}
+        {this.fotter()}
+      </div>
+    );
+  }
 }
 
 export default App;

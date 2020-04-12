@@ -10,3 +10,9 @@ CORS(speedtest_server_router)
 @speedtest_server_router.route('/')
 def index():
     return jsonify(JAPAN_SERVER_LIST)
+
+@speedtest_server_router.route('/<server_id>')
+def show(server_id):
+    server = [x for x in JAPAN_SERVER_LIST if x['id'] == server_id]
+    print(server)
+    return jsonify(server[0])

@@ -1,6 +1,13 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableContainer from '@material-ui/core/TableContainer';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
+import Paper from '@material-ui/core/Paper';
 import {
   CartesianGrid,
   Legend,
@@ -9,7 +16,8 @@ import {
   Tooltip,
   XAxis,
   YAxis
-} from "recharts";
+} from 'recharts';
+import './Graph.css'
 
 class Graph extends Component {
   constructor(props) {
@@ -31,6 +39,18 @@ class Graph extends Component {
       console.log(speedtestLogs);
       this.setState({
         speedtestLogs: speedtestLogs
+      })
+    }).catch(error => {
+      console.error(error);
+    });
+
+    axios.get(
+      'http://localhost:5000/api/v1/speedtest_servers/' + this.state.serverId
+    ).then(result => {
+      const server = result.data;
+      console.log(server);
+      this.setState({
+        server: server
       })
     }).catch(error => {
       console.error(error);
@@ -60,10 +80,41 @@ class Graph extends Component {
     );
   }
 
+  viewTable() {
+    return (
+      <div className="serveTable">
+        <lable>sps server info</lable>
+        <TableContainer className="server-table" component={Paper}>
+          <Table aria-label="sps-info">
+            <TableHead>
+              <TableRow>
+                <TableCell size="small">id</TableCell>
+                <TableCell size="small">host</TableCell>
+                <TableCell size="small">provider</TableCell>
+                <TableCell size="small">country</TableCell>
+                <TableCell size="small">city</TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              <TableRow>
+                <TableCell size="small">{this.state.server.id}</TableCell>
+                <TableCell size="small">{this.state.server.host}</TableCell>
+                <TableCell size="small">{this.state.server.provider}</TableCell>
+                <TableCell size="small">{this.state.server.country}</TableCell>
+                <TableCell size="small">{this.state.server.city}</TableCell>
+              </TableRow>
+            </TableBody>
+          </Table>
+        </TableContainer>
+      </div>
+    );
+  }
+
   render() {
     return (
       <div className="Graph">
-        <h1>server id: {this.state.serverId}</h1>
+        <h1>Network graph</h1>
+        {this.viewTable()}
         {this.viewGraph()}
         <h3><Link to={'/'}>Dashboard</Link></h3>
       </div>

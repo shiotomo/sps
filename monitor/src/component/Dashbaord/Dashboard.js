@@ -7,7 +7,7 @@ import CardContent from '@material-ui/core/CardContent';
 import CardHeader from '@material-ui/core/CardHeader';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-import './Dashboard.css';
+import './Dashboard.module.css';
 
 class Dashboard extends Component {
   constructor(props) {

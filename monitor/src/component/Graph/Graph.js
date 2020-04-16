@@ -17,13 +17,12 @@ import {
   XAxis,
   YAxis
 } from 'recharts';
-import './Graph.css'
+import './Graph.module.css'
 
 class Graph extends Component {
   constructor(props) {
     super(props);
     const serverId = props.match.params.server_id;
-    console.log(serverId);
     this.state = {
       serverId: serverId,
       speedtestLogs: [],
@@ -36,7 +35,6 @@ class Graph extends Component {
       'http://localhost:5000/api/v1/speedtests/batch/' + this.state.serverId
     ).then(result => {
       const speedtestLogs = result.data;
-      console.log(speedtestLogs);
       this.setState({
         speedtestLogs: speedtestLogs
       })
@@ -48,7 +46,6 @@ class Graph extends Component {
       'http://localhost:5000/api/v1/speedtest_servers/' + this.state.serverId
     ).then(result => {
       const server = result.data;
-      console.log(server);
       this.setState({
         server: server
       })
@@ -83,7 +80,6 @@ class Graph extends Component {
   viewTable() {
     return (
       <div className="serveTable">
-        <lable>sps server info</lable>
         <TableContainer className="server-table" component={Paper}>
           <Table aria-label="sps-info">
             <TableHead>

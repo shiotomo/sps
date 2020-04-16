@@ -13,11 +13,12 @@ services:
     networks:
       - app-net
     ports:
-      - 30000:3000
+      - 3000:3000
     build:
       context: .
       dockerfile: ./docker/monitor/Dockerfile
     volumes:
+      - ./monitor:/app
       - ./db_data/sps.db:/app/sps.db
 
 networks:

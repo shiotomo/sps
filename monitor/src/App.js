@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import './App.css';
-
 import Router from './Router.js';
 import MenuBar from './component/MenuBar/MenuBar.js'
+
+import './App.module.css';
 
 class App extends Component {
   header() {

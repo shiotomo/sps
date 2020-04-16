@@ -8,7 +8,6 @@ verify_ssl = true
 [packages]
 speedtest-cli = "*"
 python-foreman = "*"
-mysqlclient = "*"
 sqlalchemy = "*"
 python-dotenv = "*"
 honcho = "*"

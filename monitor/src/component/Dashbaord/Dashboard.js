@@ -22,7 +22,6 @@ class Dashboard extends Component {
       'http://localhost:5000/api/v1/speedtest_servers'
     ).then(result => {
       const serverList = result.data;
-      console.log(serverList);
       this.setState({
         serverList: serverList
       })

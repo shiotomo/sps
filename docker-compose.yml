@@ -1,0 +1,25 @@
+version: '3'
+
+services:
+  sps:
+    networks:
+      - app-net
+    ports:
+      - 5000:5000
+    build:
+      context: .
+      dockerfile: ./docker/sps/Dockerfile
+  monitor:
+    networks:
+      - app-net
+    ports:
+      - 30000:3000
+    build:
+      context: .
+      dockerfile: ./docker/monitor/Dockerfile
+    volumes:
+      - ./db_data/sps.db:/app/sps.db
+
+networks:
+  app-net:
+    driver: bridge

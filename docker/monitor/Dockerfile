@@ -9,3 +9,5 @@ RUN apk update
 RUN yarn install
 
 RUN yarn build
+
+FROM nginx:latest

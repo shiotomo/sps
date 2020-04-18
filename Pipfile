@@ -15,6 +15,7 @@ schedule = "*"
 marshmallow = "*"
 flask = "*"
 flask-cors = "*"
+python-crontab = "*"
 
 [requires]
 python_version = "3.7"

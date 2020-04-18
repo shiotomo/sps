@@ -7,7 +7,7 @@ import CardContent from '@material-ui/core/CardContent';
 import CardHeader from '@material-ui/core/CardHeader';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-import './Dashboard.css';
+import './Dashboard.module.css';
 
 class Dashboard extends Component {
   constructor(props) {
@@ -22,7 +22,6 @@ class Dashboard extends Component {
       'http://localhost:5000/api/v1/speedtest_servers'
     ).then(result => {
       const serverList = result.data;
-      console.log(serverList);
       this.setState({
         serverList: serverList
       })

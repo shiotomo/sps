@@ -1,0 +1,30 @@
+version: '3'
+
+services:
+  batch:
+    command: python -u /app/src/sps_schedule.py
+    build:
+      context: .
+      dockerfile: ./docker/sps/Dockerfile
+    volumes:
+      - ./sps.db:/app/sps.db
+  api:
+    command: python /app/src/sps_api.py
+    build:
+      context: .
+      dockerfile: ./docker/sps/Dockerfile
+    volumes:
+      - ./sps.db:/app/sps.db
+    ports:
+      - 5000:5000
+  monitor:
+    ports:
+      # - 3000:3000
+      - 8080:80
+    build:
+      context: .
+      dockerfile: ./docker/monitor/Dockerfile
+    volumes:
+      - ./monitor:/app
+      - ./log/nginx:/var/log/nginx
+      - ./nginx:/etc/nginx/conf.d

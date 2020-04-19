@@ -16,6 +16,7 @@ marshmallow = "*"
 flask = "*"
 flask-cors = "*"
 python-crontab = "*"
+pytest = "*"
 
 [requires]
 python_version = "3.7"
@@ -27,3 +28,4 @@ all = "python3 src/sps_cmd.py all"
 api = "python3 src/sps_api.py"
 batch = "python3 src/sps_schedule.py"
 service = "honcho start"
+test = "pytest tests"

@@ -53,6 +53,10 @@ class SpeedtestService:
         for server in JAPAN_SERVER_LIST:
             print("start: " + server['id'])
             speedtest_result = self.run_speedtest(server)
+            # speedtestの結果が{}の時insertしない
+            if speedtest_result == {}:
+                print("no speedtest result.")
+                continue
             speedtest = self.speedtest_repository.insert(speedtest_result)
             print(speedtest.to_dict())
             result_list.append(speedtest.to_dict())
@@ -60,8 +64,11 @@ class SpeedtestService:
 
     # speedtestを実行した結果を取得する
     def run_speedtest(self, server):
-        process = subprocess.run(['speedtest', '--server', server['id'], '--json'], capture_output=True)
-        return json.loads(process.stdout)
+        try:
+            process = subprocess.run(['speedtest', '--server', server['id'], '--json'], capture_output=True)
+            return json.loads(process.stdout)
+        except:
+            return {}
 
     # JAPAN_SERVER_LISTからランダムに1つサーバを取得する
     def get_random_speedtest_server(self):

@@ -32,7 +32,7 @@ class Graph extends Component {
 
   componentDidMount() {
     axios.get(
-      'http://localhost:5000/api/v1/speedtests/batch/' + this.state.serverId
+      '/api/v1/speedtests/batch/' + this.state.serverId
     ).then(result => {
       const speedtestLogs = result.data;
       this.setState({
@@ -43,7 +43,7 @@ class Graph extends Component {
     });
 
     axios.get(
-      'http://localhost:5000/api/v1/speedtest_servers/' + this.state.serverId
+      '/api/v1/speedtest_servers/' + this.state.serverId
     ).then(result => {
       const server = result.data;
       this.setState({

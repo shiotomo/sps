@@ -19,7 +19,7 @@ class Dashboard extends Component {
 
   componentDidMount() {
     axios.get(
-      'http://localhost:5000/api/v1/speedtest_servers/'
+      '/api/v1/speedtest_servers/'
     ).then(result => {
       const serverList = result.data;
       this.setState({

@@ -14,34 +14,18 @@ class SpeedtestService:
     def get_speedtest_all(self):
         speedtests = self.speedtest_repository.select_all()
         return ListUtils.get_speedtest_list(speedtests)
-        # speedtest_list = []
-        # for speedtest in speedtests:
-        #     speedtest_list.append(speedtest.to_dict())
-        # return speedtest_list
     
     def get_speedtest_where_server_id(self, server_id):
         speedtests = self.speedtest_repository.select_where_server_id(server_id)
         return ListUtils.get_speedtest_list(speedtests)
-        # speedtest_list = []
-        # for speedtest in speedtests:
-        #     speedtest_list.append(speedtest.to_dict())
-        # return speedtest_list
 
     def get_speedtest_where_mode(self, mode):
         speedtests = self.speedtest_repository.select_where_mode(mode)
         return ListUtils.get_speedtest_list(speedtests)
-        # speedtest_list = []
-        # for speedtest in speedtests:
-        #     speedtest_list.append(speedtest.to_dict())
-        # return speedtest_list
 
     def get_speedtest_where_server_id_and_batch(self, server_id):
         speedtests = self.speedtest_repository.select_where_server_id_and_batch(server_id)
         return ListUtils.get_speedtest_list(speedtests)
-        # speedtest_list = []
-        # for speedtest in speedtests:
-        #     speedtest_list.append(speedtest.to_dict())
-        # return speedtest_list
 
     # speedtestを実行し、結果をDBに格納する
     def record_speedtest_result(self):

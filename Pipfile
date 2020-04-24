@@ -17,6 +17,7 @@ flask = "*"
 flask-cors = "*"
 python-crontab = "*"
 pytest = "*"
+pytz = "*"
 
 [requires]
 python_version = "3.7"

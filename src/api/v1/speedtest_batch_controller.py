@@ -8,7 +8,7 @@ CORS(speedtest_batch_router)
 
 speedtest_service = SpeedtestService('api')
 
-# 指定したサーバIDの実行結果を取得する
+# 全サーバの実行結果を取得する
 @speedtest_batch_router.route('/')
 def index():
     speedtest_list = speedtest_service.get_speedtest_where_mode('batch')

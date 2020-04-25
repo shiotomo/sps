@@ -8,13 +8,13 @@ CORS(speedtest_batch_router)
 
 speedtest_service = SpeedtestService('api')
 
-# 全サーバの実行結果を取得する
+# 全サーバのバッチでのspeedtest実行結果を取得する
 @speedtest_batch_router.route('/')
 def index():
     speedtest_list = speedtest_service.get_speedtest_where_mode('batch')
     return jsonify(speedtest_list)
 
-# 指定したサーバIDの実行結果を取得する
+# 指定したサーバIDのバッチでのspeedtest実行結果を取得する
 @speedtest_batch_router.route('/<server_id>')
 def show(server_id):
     speedtest_list = speedtest_service.get_speedtest_where_server_id_and_batch(server_id)

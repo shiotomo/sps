@@ -1,13 +1,11 @@
 FROM node:12.16.2-alpine3.9
 
-RUN mkdir /app
-WORKDIR /app
+RUN mkdir -p /app/monitor
+WORKDIR /app/monitor
 
-ADD ./monitor /app
+ADD ./monitor /app/monitor/package.json
+# ADD ./monitor /app/monitor/yarn.lock
 
 RUN apk update
-RUN yarn install
 
-RUN yarn build
-
-FROM nginx:latest
+CMD yarn install && yarn build

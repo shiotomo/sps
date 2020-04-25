@@ -7,7 +7,7 @@ services:
       context: .
       dockerfile: ./docker/sps/Dockerfile
     volumes:
-      - ./sps.db:/app/sps.db
+      - .:/app
     networks:
       - sps-net
   api:

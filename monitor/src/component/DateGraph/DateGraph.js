@@ -17,16 +17,19 @@ import {
   XAxis,
   YAxis
 } from 'recharts';
-import './Graph.module.css'
+import './DateGraph.module.css'
 
-class Graph extends Component {
+class DateGraph extends Component {
   constructor(props) {
     super(props);
     const serverId = props.match.params.server_id;
+    const date = props.match.params.date;
     this.state = {
       serverId: serverId,
+      date: date,
       speedtestLogs: [],
-      server: {}
+      server: {},
+      datetimeList: []
     };
   }
 
@@ -37,7 +40,7 @@ class Graph extends Component {
       const speedtestLogs = result.data;
       this.setState({
         speedtestLogs: speedtestLogs
-      })
+      });
     }).catch(error => {
       console.error(error);
     });
@@ -57,12 +60,15 @@ class Graph extends Component {
   viewGraph() {
     const graphData = []
     this.state.speedtestLogs.forEach(speedtest => {
-      const log = {
-        upload: speedtest.upload,
-        download: speedtest.download,
-        timestamp: speedtest.timestamp
-      };
-      graphData.push(log);
+      const timestamp = speedtest.timestamp.match(/^\d{4}-\d{2}-\d{2}/).toString();
+      if (this.state.date === timestamp) {
+        const log = {
+          upload: speedtest.upload,
+          download: speedtest.download,
+          timestamp: speedtest.timestamp
+        };
+        graphData.push(log);
+      }
     });
     return (
         <LineChart width={1600} height={500}  margin={{top: 5, right: 50, left: 50, bottom: 25}} data={graphData}>
@@ -106,50 +112,16 @@ class Graph extends Component {
     );
   }
 
-  viewDatetimeList() {
-    const timestampList = [];
-    this.state.speedtestLogs.forEach(speedtestLog => {
-      const timestamp = speedtestLog.timestamp.match(/^\d{4}-\d{2}-\d{2}/).toString();
-      if (!timestampList.includes(timestamp)) {
-        timestampList.push(timestamp);
-      }
-    });
-
-    return (
-      <div className="datetimeTable">
-        <TableContainer className="datetime-table" component={Paper}>
-          <Table aria-label="datetime-info">
-            <TableHead>
-              <TableRow>
-                <TableCell size="small">datetime</TableCell>
-              </TableRow>
-            </TableHead>
-            <TableBody>
-              {timestampList.map(timestamp => (
-                <TableRow key={timestamp}>
-                  <TableCell size="small">
-                    <Link to={'/dategraph/' + this.state.serverId + '/' + timestamp}>{timestamp}</Link>
-                  </TableCell>
-                </TableRow>
-              ))}
-            </TableBody>
-          </Table>
-        </TableContainer>
-      </div>
-    );
-  }
-
   render() {
     return (
       <div className="Graph">
-        <h1>Network graph</h1>
-        <h3><Link to={'/'}>Dashboard</Link> > Graph[{this.state.serverId}]</h3>
+        <h1>Network graph where date</h1>
+        <h3><Link to={'/'}>Dashboard</Link> > <Link to={'/graph/' + this.state.serverId}>Graph[{this.state.serverId}]</Link> > {this.state.date}</h3>
         {this.viewTable()}
         {this.viewGraph()}
-        {this.viewDatetimeList()}
       </div>
     );
   }
 }
 
-export default Graph;
+export default DateGraph;

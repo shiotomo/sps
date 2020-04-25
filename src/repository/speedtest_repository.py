@@ -20,11 +20,7 @@ class SpeedtestRepository:
         return speedtests
 
     def select_where_server_id_and_batch(self, server_id):
-        speedtests = self.session.query(Speedtest).filter(Speedtest.server_id == server_id).filter(Speedtest.mode == 'batch').all()
-        return speedtests
-
-    def select_where_server_id_and_batch(self, server_id):
-        speedtests = self.session.query(Speedtest).filter(Speedtest.server_id == server_id).filter(Speedtest.mode == 'batch').all()
+        speedtests = self.session.query(Speedtest).filter(Speedtest.server_id == server_id, Speedtest.mode == 'batch').all()
         return speedtests
 
     def insert(self, record):

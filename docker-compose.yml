@@ -16,7 +16,7 @@ services:
       context: .
       dockerfile: ./docker/sps/Dockerfile
     volumes:
-      - ./sps.db:/app/sps.db
+      - .:/app
     ports:
       - 5000:5000
     networks:

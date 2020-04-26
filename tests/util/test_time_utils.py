@@ -26,7 +26,7 @@ class TestTimeUtils:
     # UTC(GMT) -> JSTの変換がうまくできているかチェック
     def test_convert_datetime_zone_utc_to_jst(self):
         now = datetime.now()
-        hours = timedelta(hours = 9)
+        hours = timedelta(hours = 0)
         str_jst_datetime = TimeUtils.convert_datetime_timezone_utc_to_jst(now)
         # 文字列化してassertする
         assert str_jst_datetime.strftime(self.datetime_format) == (now + hours).astimezone(timezone("Asia/Tokyo")).strftime(self.datetime_format)

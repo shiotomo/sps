@@ -21,7 +21,11 @@ jobs:
           pipenv install --system
       - name: Run migrate
         run: |
-          pipenv run migrate
+          python src/sps_cmd.py migrate
+        env:
+          DATABASE_URL: sqlite:///./sps.db
       - name: Run pytest
         run: |
-          pipenv run test
+          pytest tests
+        env:
+          DATABASE_URL: sqlite:///./sps.db

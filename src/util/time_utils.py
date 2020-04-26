@@ -10,10 +10,11 @@ class TimeUtils:
         return str_jst_datetime
 
     def convert_datetime_timezone_utc_to_jst(utc_datetime):
-        delta = timedelta(hours=9)
+        # delta = timedelta(hours=9)
+        delta = timedelta(hours=0)
         jst_datetime = utc_datetime + delta
         return jst_datetime.astimezone(timezone('Asia/Tokyo'))
-    
+
     @staticmethod
     def to_datetime(str_datetime):
         pass

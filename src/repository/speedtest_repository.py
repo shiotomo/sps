@@ -45,7 +45,7 @@ class SpeedtestRepository:
             bytes_received = record['bytes_received'],
             share = record['share'],
             client_ip = record['client']['ip'],
-            client_lat = record['client']['lat'], 
+            client_lat = record['client']['lat'],
             client_lon = record['client']['lon'],
             client_isp = record['client']['isp'],
             client_isprating = record['client']['isprating'],

@@ -1,4 +1,4 @@
-name: sps ci
+name: GitHub Actions
 
 on: [push]
 

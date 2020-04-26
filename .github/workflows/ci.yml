@@ -26,4 +26,4 @@ jobs:
           DATABASE_URL: sqlite:///./sps.db
       - name: Run pytest
         run: |
-          pipenv run test
+          pytest tests

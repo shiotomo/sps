@@ -22,17 +22,19 @@ speedtest-cliを利用して、ネットワーク回線の状態を集計・監�
 `DATABASE_URL`は利用したいデータベースに合わせて設定してください。デフォルトはSQliteを利用しています。
 `FLASK_ENV`は本番環境で利用する場合は、`production`を指定してください。
 
-**apiとbatchの設定**
+**build**
 
 ```
 docker-compose build
+```
+
+**monitorの設定**
+
+```
+docker-compose run monitor
 ```
 
 **apiとbatchの実行**
 ```
 docker-compose up -d api batch
 ```
-
-**monitorの設定と実行**
-
-[こちら](https://github.com/shiotomo/sps/blob/master/monitor/README.md)を参照してください。

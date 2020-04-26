@@ -9,12 +9,12 @@ from util import ListUtils
 class SpeedtestService:
     def __init__(self, mode):
         self.speedtest_repository = SpeedtestRepository(mode)
-        self.mode = mode 
+        self.mode = mode
 
     def get_speedtest_all(self):
         speedtests = self.speedtest_repository.select_all()
         return ListUtils.get_speedtest_list(speedtests)
-    
+
     def get_speedtest_where_server_id(self, server_id):
         speedtests = self.speedtest_repository.select_where_server_id(server_id)
         return ListUtils.get_speedtest_list(speedtests)

@@ -25,7 +25,7 @@ class Speedtest(Base):
     server_latency = Column('server_latency', Float)
     timestamp = Column('timestamp', DateTime)
     bytes_sent = Column('bytes_sent', Integer)
-    bytes_received = Column('bytes_recived', Integer)
+    bytes_received = Column('bytes_received', Integer)
     share = Column('share', String)
     client_ip = Column('client_ip', String)
     client_lat = Column('client_lat', String)
@@ -72,7 +72,7 @@ class Speedtest(Base):
             'mode': self.mode
         }
         return speedtest_dict
-    
+
     def to_json(self):
         speedtest_dict = self.to_dict()
         return json.dumps(speedtest_dict, default=self.json_serial)

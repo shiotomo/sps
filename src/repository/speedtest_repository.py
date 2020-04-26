@@ -1,4 +1,4 @@
-from datetime import datetime
+from datetime import datetime, timezone
 
 from db import DBSession, Speedtest
 
@@ -24,8 +24,7 @@ class SpeedtestRepository:
         return speedtests
 
     def insert(self, record):
-        # timestamp = dt.strptime(record['timestamp'], '%Y-%m-%dT%H:%M:%S')
-        timestamp = datetime.now()
+        timestamp = datetime.now(timezone.utc)
         speedtest = Speedtest(
             download = record['download'],
             upload = record['upload'],

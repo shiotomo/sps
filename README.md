@@ -1,5 +1,7 @@
 # sps
 
+![](https://github.com/shiotomo/sps/workflows/.github/workflows/ci.yml/badge.svg)
+
 ## このアプリについて
 
 speedtest-cliを利用して、ネットワーク回線の状態を集計・監視・分析するシステムです。

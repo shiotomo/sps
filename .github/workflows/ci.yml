@@ -8,6 +8,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2 
+      - name: setup environment
       - name: Set up Python 3.7
         uses: actions/setup-python@v1
         with:
@@ -22,6 +23,8 @@ jobs:
       - name: Run migrate
         run: |
           python src/sps_cmd.py migrate
+        env:
+          DATABASE_URL: "sqlite:///./sps.db"
       - name: Run pytest
         run: |
           pipenv run test

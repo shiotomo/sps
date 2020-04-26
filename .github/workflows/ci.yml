@@ -19,6 +19,9 @@ jobs:
       - name: Install pipenv --system
         run: |
           pipenv install --system
+      - name: Run migrate
+        run: |
+          pipenv run migrate
       - name: Run pytest
         run: |
           pipenv run test

@@ -2,6 +2,7 @@ import json
 
 from service import SpeedtestService
 from config import JAPAN_SERVER_LIST
+from db import Migration
 
 class SpsCmdList():
     def __init__(self, cmd):
@@ -15,6 +16,8 @@ class SpsCmdList():
             self.get_result()
         elif self.cmd == 'all':
             self.run_speed_test_all_server()
+        elif self.cmd == 'migrate':
+            Migration()
         else:
             print(self.cmd)
 

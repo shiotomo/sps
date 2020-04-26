@@ -24,7 +24,7 @@ class SpeedtestRepository:
         return speedtests
 
     def insert(self, record):
-        timestamp = datetime.now(timezone.utc)
+        timestamp = datetime.now()
         speedtest = Speedtest(
             download = record['download'],
             upload = record['upload'],

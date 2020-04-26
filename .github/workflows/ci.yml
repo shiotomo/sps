@@ -16,11 +16,9 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install pipenv
-      - name: Install pipenv --system
+      - name: Install pipenv && migrate
         run: |
           pipenv install --system
-      - name: Run migrate
-        run: |
           pipenv run migrate
       - name: Run pytest
         run: |

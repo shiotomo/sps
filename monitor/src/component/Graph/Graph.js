@@ -65,7 +65,7 @@ class Graph extends Component {
       graphData.push(log);
     });
     return (
-        <LineChart width={1600} height={500}  margin={{top: 5, right: 50, left: 50, bottom: 25}} data={graphData}>
+        <LineChart width={1300} height={500}  margin={{top: 5, right: 50, left: 50, bottom: 25}} data={graphData}>
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis dataKey="timestamp" />
           <YAxis />

@@ -13,9 +13,9 @@ class App extends Component {
     );
   }
 
-  fotter() {
+  footer() {
     return (
-      <div className="fotter">
+      <div className="footer">
         &copy; sps-monitor shiotomo 2020
       </div>
     );
@@ -34,7 +34,7 @@ class App extends Component {
       <div className="App">
         {this.header()}
         {this.content()}
-        {this.fotter()}
+        {this.footer()}
       </div>
     );
   }
